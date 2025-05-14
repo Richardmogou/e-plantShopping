@@ -4,6 +4,7 @@ import {addItem, removeItem, updateQuantity } from './CartSlice';
 import './CartItem.css';
 
 const CartItem = ({ onContinueShopping }) => {
+    
   const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
 
@@ -22,6 +23,7 @@ const CartItem = ({ onContinueShopping }) => {
   const handleContinueShopping = (e) => {
     onContinueShopping(e)
   };
+  
   const handleCheckoutShopping = (e) => {
     alert('Functionality to be added for future reference');
   };
@@ -51,7 +53,7 @@ const CartItem = ({ onContinueShopping }) => {
 
   return (
     <div className="cart-container">
-      <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
+      <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount(cart)}</h2>
       <div>
         {cart.map(item => (
           <div className="cart-item" key={item.name}>
